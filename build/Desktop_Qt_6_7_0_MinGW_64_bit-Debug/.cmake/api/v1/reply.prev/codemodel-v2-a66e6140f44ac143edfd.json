@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-5049530054b83cdd155f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "videoplayer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "videoplayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-videoplayer-Debug-d3148c7881d10622dfb0.json",
+					"name" : "videoplayer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "videoplayer_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-videoplayer_autogen-Debug-971af10a0b43b6b2757e.json",
+					"name" : "videoplayer_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "videoplayer_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-videoplayer_autogen_timestamp_deps-Debug-c4b641ec0b1305491b15.json",
+					"name" : "videoplayer_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug",
+		"source" : "E:/Desktop/QT/videoplayer/videoplayer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
