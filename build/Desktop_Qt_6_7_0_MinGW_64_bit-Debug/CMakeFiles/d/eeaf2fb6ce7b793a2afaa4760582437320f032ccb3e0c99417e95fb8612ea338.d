@@ -22,6 +22,8 @@ videoplayer_autogen/timestamp: \
   E:/Desktop/QT/videoplayer/videoplayer/videowindow.cpp \
   E:/Desktop/QT/videoplayer/videoplayer/videowindow.h \
   E:/Desktop/QT/videoplayer/videoplayer/videowindow.ui \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/QDir \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \

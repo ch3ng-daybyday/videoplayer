@@ -6,40 +6,50 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>275</width>
+    <width>214</width>
     <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>100</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="res.qrc">
-       <normaloff>:/res/toright.png</normaloff>:/res/toright.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QTreeView" name="playListTree">
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>30</height>
-      </size>
-     </property>
-    </widget>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="operaBt">
+       <property name="minimumSize">
+        <size>
+         <width>20</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="res.qrc">
+         <normaloff>:/res/toright.png</normaloff>:/res/toright.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTreeView" name="playListView">
+       <property name="minimumSize">
+        <size>
+         <width>20</width>
+         <height>550</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

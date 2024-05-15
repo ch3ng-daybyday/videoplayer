@@ -4,12 +4,14 @@
 #include <QMainWindow>
 // #include "maindialog.h"
 #include <QMediaPlayer>
-
+#include <QFileInfo>
 #include <QGraphicsVideoItem>
 #include <QFileDialog>
 #include <QMediaDevices>
 #include <QMessageBox>
 #include <QAudioOutput>
+#include <QListWidget>
+#include <QDir>
 namespace Ui {
 class VideoWindow;
 }
@@ -26,19 +28,22 @@ public:
     QGraphicsVideoItem * videoItem;
     QAudioOutput * audio;
     QGraphicsScene * scene;
-    // MainDialog *md;
 
+    // MainDialog *md;
 private:
-    void openSoureAndPlay();
+    void PlayBySoure(QString);
+    void opensoure();
     void adjustVolume();
     void videoStop();
     void videoPause();
     void videoPlay();
+    void creatPlayerList(const QFile);
     void resizeEvent(QResizeEvent *) override;
     // void mousePressEvent(QMouseEvent*) override;
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *) override;
+    void mouseMoveEvent(QMouseEvent *) override;
     QString millisecondRevTime(qint64 ms);
-
     Ui::VideoWindow *ui;
 };
 

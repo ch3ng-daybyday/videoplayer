@@ -1,9 +1,12 @@
 E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/videoplayer_autogen/EWIEGA46WW/moc_videowindow.cpp: E:/Desktop/QT/videoplayer/videoplayer/videowindow.h \
   E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/videoplayer_autogen/moc_predefs.h \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/QDir \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/q23utility.h \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qarraydata.h \
@@ -52,6 +55,7 @@ E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   E:/Qt/6.7.0/mingw_64/include/QtCore/qhashfunctions.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qiodevice.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qiodevicebase.h \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/qitemselectionmodel.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qiterable.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qiterator.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qlatin1stringview.h \
@@ -79,6 +83,7 @@ E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   E:/Qt/6.7.0/mingw_64/include/QtCore/qprocessordetection.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qrect.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qrefcount.h \
+  E:/Qt/6.7.0/mingw_64/include/QtCore/qregularexpression.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qscopedpointer.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qscopeguard.h \
   E:/Qt/6.7.0/mingw_64/include/QtCore/qset.h \
@@ -152,6 +157,7 @@ E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   E:/Qt/6.7.0/mingw_64/include/QtGui/qtguiexports.h \
   E:/Qt/6.7.0/mingw_64/include/QtGui/qtguiglobal.h \
   E:/Qt/6.7.0/mingw_64/include/QtGui/qtransform.h \
+  E:/Qt/6.7.0/mingw_64/include/QtGui/qvalidator.h \
   E:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   E:/Qt/6.7.0/mingw_64/include/QtMultimedia/QAudioOutput \
@@ -172,15 +178,29 @@ E:/Desktop/QT/videoplayer/videoplayer/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   E:/Qt/6.7.0/mingw_64/include/QtMultimediaWidgets/qtmultimediawidgetsglobal.h \
   E:/Qt/6.7.0/mingw_64/include/QtMultimediaWidgets/qvideowidget.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/QFileDialog \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/QListWidget \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractslider.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qfiledialog.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistwidget.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qslider.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyle.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleoption.h \
+  E:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \

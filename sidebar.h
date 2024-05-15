@@ -4,9 +4,9 @@
 #include <QStandardItem>
 #include <QWidget>
 #include <QListWidgetItem>
-
+// #include <QHBoxLayout>
 #include <QListWidget>
-
+// #include <QHBoxLayouts>
 namespace Ui {
 class SideBar;
 }
@@ -18,6 +18,8 @@ class SideBar : public QWidget
 public:
     QListWidget* widgetlist;
     explicit SideBar(QWidget *parent = nullptr);
+    // QHBoxLayout * hboxlayout;
+
     ~SideBar();
     void addPlayerList(QString,QString);
 private:

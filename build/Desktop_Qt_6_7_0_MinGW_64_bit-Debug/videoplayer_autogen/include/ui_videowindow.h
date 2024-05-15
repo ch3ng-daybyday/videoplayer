@@ -16,6 +16,7 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -24,6 +25,7 @@
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -49,6 +51,8 @@ public:
     QPushButton *voice;
     QSlider *voiceSlider;
     QSpacerItem *horizontalSpacer_2;
+    QPushButton *siderBt;
+    QTreeWidget *playerList;
     QMenuBar *menubar;
     QMenu *menu;
     QStatusBar *statusbar;
@@ -57,7 +61,7 @@ public:
     {
         if (VideoWindow->objectName().isEmpty())
             VideoWindow->setObjectName("VideoWindow");
-        VideoWindow->resize(800, 600);
+        VideoWindow->resize(886, 600);
         openFile = new QAction(VideoWindow);
         openFile->setObjectName("openFile");
         actionexit = new QAction(VideoWindow);
@@ -70,6 +74,7 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         videoBox = new QGraphicsView(centralwidget);
         videoBox->setObjectName("videoBox");
+        videoBox->setEnabled(false);
 
         verticalLayout->addWidget(videoBox);
 
@@ -145,10 +150,35 @@ public:
 
         gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
 
+        siderBt = new QPushButton(centralwidget);
+        siderBt->setObjectName("siderBt");
+        siderBt->setMinimumSize(QSize(20, 110));
+        siderBt->setMaximumSize(QSize(20, 110));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/res/toright.png"), QSize(), QIcon::Normal, QIcon::Off);
+        siderBt->setIcon(icon3);
+
+        gridLayout->addWidget(siderBt, 0, 1, 1, 1);
+
+        playerList = new QTreeWidget(centralwidget);
+        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
+        __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
+        playerList->setHeaderItem(__qtreewidgetitem);
+        playerList->setObjectName("playerList");
+        playerList->setEnabled(false);
+        playerList->setMinimumSize(QSize(200, 0));
+        playerList->setMaximumSize(QSize(200, 16777215));
+        playerList->setTextElideMode(Qt::ElideLeft);
+        playerList->setItemsExpandable(false);
+        playerList->setExpandsOnDoubleClick(true);
+        playerList->setColumnCount(1);
+
+        gridLayout->addWidget(playerList, 0, 2, 1, 1);
+
         VideoWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(VideoWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 886, 21));
         menu = new QMenu(menubar);
         menu->setObjectName("menu");
         VideoWindow->setMenuBar(menubar);
@@ -176,6 +206,7 @@ public:
         stopBT->setText(QString());
         playBt->setText(QString());
         voice->setText(QString());
+        siderBt->setText(QString());
         menu->setTitle(QCoreApplication::translate("VideoWindow", "\346\226\207\344\273\266", nullptr));
     } // retranslateUi
 

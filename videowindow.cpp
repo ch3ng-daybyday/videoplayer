@@ -1,6 +1,9 @@
 #include "videowindow.h"
 #include "ui_videowindow.h"
 #include <QMouseEvent>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+
 VideoWindow::VideoWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::VideoWindow)
@@ -13,9 +16,9 @@ VideoWindow::VideoWindow(QWidget *parent)
     audio = new QAudioOutput;
     scene = new QGraphicsScene;
     scene->setBackgroundBrush(Qt::black);
-        ui->videoBox->setScene(scene);
+    ui->videoBox->setScene(scene);
     //打开文件，播放视频的
-    connect(ui->openFile,&QAction::triggered,this,&VideoWindow::openSoureAndPlay);
+    connect(ui->openFile,&QAction::triggered,this,&VideoWindow::opensoure);
     connect(ui->voiceSlider,&QSlider::valueChanged,this,&VideoWindow::adjustVolume);
     connect(player,&QMediaPlayer::durationChanged,player,[=](qint64 duration){
         ui->totalVideoTime->setText(millisecondRevTime(duration));
@@ -52,23 +55,38 @@ VideoWindow::VideoWindow(QWidget *parent)
             ui->nowTime->setText(millisecondRevTime(position));
             ui->playTimeSlider->setValue(position);
         });
-
+    });
+    connect(ui->siderBt,&QPushButton::clicked,this,[&]()
+            {
+                if( ui->playerList->isHidden()){
+                    ui->playerList->show();
+                }
+                else
+                {
+                    ui->playerList->hide();
+                }
+            });
+    connect(ui->playerList, &QTreeWidget::itemClicked, this, [&](QTreeWidgetItem *item, int column) {
+        QMessageBox::information(this, "Double Clicked", "You double clicked an item!");
     });
 }
-void VideoWindow::openSoureAndPlay(){
+void VideoWindow::opensoure(){
     //打开文件
     QString *strCurrectPath = new QString(QDir::homePath());//获取当前目录；
     QString strDigtitle  = "选择视频文件";
     QString strFiler  = "MP4 file(*.mp4);;file(*.*)";
     //打开视频文件过滤器
-    QString AllFiles = QFileDialog::getOpenFileName(this,strDigtitle,*strCurrectPath,strFiler);
+    QString  AllFiles = QFileDialog::getOpenFileName(this,strDigtitle,*strCurrectPath,strFiler);
     if(AllFiles.isEmpty()){
         QMessageBox::warning(this,"警告","打开文件失败",QMessageBox::Ok);
     }
-    // QFileInfo fileinfo(AllFiles);
+    PlayBySoure(AllFiles);
+    creatPlayerList(AllFiles);
+}
+void VideoWindow::PlayBySoure(QString AllFiles){
     QUrl soure = QUrl::fromLocalFile(AllFiles);
     player->setSource(soure);
-    audio->setVolume(0.5);
+    audio->setVolume(ui->voiceSlider->value());
     player->setAudioOutput(audio);
     videoItem = new QGraphicsVideoItem;
     videoItem->setFlags(QGraphicsVideoItem::ItemIsMovable|QGraphicsVideoItem::ItemIsFocusable|QGraphicsVideoItem::ItemIsSelectable);
@@ -107,7 +125,82 @@ QString  VideoWindow::millisecondRevTime(qint64 ms){
     }
     return timeString;
 }
+
+void VideoWindow::creatPlayerList(const QFile file)
+{
+    // listWidget =  new QListWidget(ui->playerList);
+    //获取当前文件的根目录
+    QFileInfo fileInfo(file);
+    QString _filePath  = fileInfo.filePath();
+    QString absolutePath  = fileInfo.absolutePath();
+    QDir dir(absolutePath);
+    // 去除文件名部分，保留目录部分
+    QString parentDir = dir.dirName();
+    if (parentDir.isEmpty()) {
+        // 如果当前目录已经是根目录，需要特殊处理
+        parentDir = dir.absolutePath();
+    } else {
+        // 构造上一级目录的完整路径
+        parentDir = dir.absolutePath().left(dir.absolutePath().lastIndexOf(QDir::separator()));
+    }
+
+    int sameCount = 0;
+    int sameChildrenCount = 0;
+    if(ui->playerList->topLevelItemCount() ==0 ){
+        QTreeWidgetItem *topItem = new QTreeWidgetItem(ui->playerList);
+        topItem->setText(0,parentDir);
+        QTreeWidgetItem * childrenItem = new QTreeWidgetItem(topItem);
+        childrenItem->setText(0,fileInfo.fileName());
+        topItem->setExpanded(true);
+        childrenItem->setData(0,Qt::UserRole,_filePath);
+        qDebug()<<topItem->data(0,Qt::UserRole).toString();
+    }
+    else{
+        for(int i =0;i<ui->playerList->topLevelItemCount();i++){
+            QTreeWidgetItem * topItem = ui->playerList->topLevelItem(i);
+            if(parentDir==topItem->text(0)){//当根目录文件已经存在
+                for(int j = 0;j<topItem->childCount();j++){
+                    QString a = topItem->child(j)->data(0,Qt::UserRole).toString();
+                    qDebug() << "childe Item : "<< a << "\n";
+                    qDebug() << "_filePath   : " << _filePath << "\n";
+                    if(topItem->child(j)->data(0,Qt::UserRole).toString()==_filePath){
+                        sameChildrenCount++;
+                        break;
+                    }
+                }
+                if(sameChildrenCount==0){
+                    QTreeWidgetItem* childrenItem = new QTreeWidgetItem(topItem);
+                    childrenItem->setText(0,fileInfo.fileName());
+                    childrenItem->setData(0,Qt::UserRole,_filePath);
+                }
+                sameCount ++;
+                break;
+            }
+            topItem->setExpanded(true);
+        }
+        if(sameCount==0){
+            QTreeWidgetItem *topItem = new QTreeWidgetItem(ui->playerList);
+            topItem->setText(0,parentDir);
+            QTreeWidgetItem * childrenItem = new QTreeWidgetItem(topItem);
+            childrenItem->setText(0,fileInfo.fileName());
+            topItem->setExpanded(true);
+            childrenItem->setData(0,Qt::UserRole,_filePath);
+            qDebug()<<topItem->data(0,Qt::UserRole).toString();
+        }
+    }
+
+}
+
 void VideoWindow::mousePressEvent(QMouseEvent * event){
+    if(event->button() ==Qt::LeftButton){
+        QPoint  p =  event->pos();
+    }
+}
+
+void VideoWindow:: mouseReleaseEvent(QMouseEvent *) {
+
+}
+void VideoWindow:: mouseMoveEvent(QMouseEvent *) {
 
 }
 VideoWindow::~VideoWindow()

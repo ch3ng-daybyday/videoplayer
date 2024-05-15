@@ -12,7 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTreeView>
@@ -23,31 +23,38 @@ QT_BEGIN_NAMESPACE
 class Ui_SideBar
 {
 public:
-    QGridLayout *gridLayout;
-    QPushButton *pushButton;
-    QTreeView *playListTree;
+    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *operaBt;
+    QTreeView *playListView;
 
     void setupUi(QWidget *SideBar)
     {
         if (SideBar->objectName().isEmpty())
             SideBar->setObjectName("SideBar");
-        SideBar->resize(275, 605);
-        gridLayout = new QGridLayout(SideBar);
-        gridLayout->setObjectName("gridLayout");
-        pushButton = new QPushButton(SideBar);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(20, 100));
+        SideBar->resize(214, 605);
+        horizontalLayout_2 = new QHBoxLayout(SideBar);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        operaBt = new QPushButton(SideBar);
+        operaBt->setObjectName("operaBt");
+        operaBt->setMinimumSize(QSize(20, 100));
+        operaBt->setMaximumSize(QSize(20, 16777215));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/res/toright.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
+        operaBt->setIcon(icon);
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        horizontalLayout->addWidget(operaBt);
 
-        playListTree = new QTreeView(SideBar);
-        playListTree->setObjectName("playListTree");
-        playListTree->setMinimumSize(QSize(20, 30));
+        playListView = new QTreeView(SideBar);
+        playListView->setObjectName("playListView");
+        playListView->setMinimumSize(QSize(20, 550));
 
-        gridLayout->addWidget(playListTree, 0, 1, 1, 1);
+        horizontalLayout->addWidget(playListView);
+
+
+        horizontalLayout_2->addLayout(horizontalLayout);
 
 
         retranslateUi(SideBar);
@@ -58,7 +65,7 @@ public:
     void retranslateUi(QWidget *SideBar)
     {
         SideBar->setWindowTitle(QCoreApplication::translate("SideBar", "Form", nullptr));
-        pushButton->setText(QString());
+        operaBt->setText(QString());
     } // retranslateUi
 
 };
